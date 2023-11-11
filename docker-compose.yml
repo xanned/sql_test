@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  dbtest:
+    build: ./
+    container_name: dbtest
+    restart: no
+    env_file:
+      - dbtest.env
+    volumes:
+      - ./:/app
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:latest
+    restart: always
+    container_name: database
+    env_file:
+      - dbtest.env
+    ports:
+      - "5432:5432"
+
