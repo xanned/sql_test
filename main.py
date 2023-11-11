@@ -49,7 +49,7 @@ async def main():
     await fill_tables()
     print(f'Заполнение базы данных - {time.time() - start}')
     start2 = time.time()
-    # await update_table()
+    await update_table()
     print(f'Обновление базы данных - {time.time() - start2}')
     print(f'Время работы скрипта - {time.time() - start}')
 
